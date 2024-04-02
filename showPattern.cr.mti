@@ -1,0 +1,54 @@
+{C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/showPattern.sv} {1 {vlog -work work -sv -stats=none {C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/showPattern.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module showPattern
+
+Top level modules:
+	showPattern
+
+} {} {}} {C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/showPattern_tb.sv} {1 {vlog -work work -sv -stats=none {C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/showPattern_tb.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module showPattern_tb
+
+Top level modules:
+	showPattern_tb
+
+} {} {}} {C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv} {2 {vlog -work work -sv -stats=none {C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module updatePattern
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(9): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(9): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(9): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(9): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(9): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(9): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(9): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(9): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(9): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(9): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(9): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(9): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(9): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(9): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(9): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(8): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(8): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(8): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(8): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(8): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(8): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(8): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(8): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(8): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+** Warning: (vlog-2121) C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern.sv(8): Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+
+Top level modules:
+	updatePattern
+
+} {} {}} {C:/Users/alexj/OneDrive/Documents/ECET/Term 6/ELEX 7660 Digital system/Project/updatePattern_tb.sv} {1 {vlog -work work -sv -stats=none {C:\Users\alexj\OneDrive\Documents\ECET\Term 6\ELEX 7660 Digital system\Project\updatePattern_tb.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module updatePattern_tb
+
+Top level modules:
+	updatePattern_tb
+
+} {} {}}

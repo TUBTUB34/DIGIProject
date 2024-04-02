@@ -1,0 +1,20 @@
+module colorchoice (
+                    input logic clk, // clock and reset
+                    input logic [11:0] colorjoystick,
+                    output logic [3:0] color
+                    );
+
+    logic [24:0] count = 0;
+        
+    always_ff @(posedge clk) begin
+        count <= count + 1
+        if (count >= 20000000) begin
+            if (colorjoystick > 12'h850) color <= color + 1;
+            else if (colorjoystick < 12'h400) color <= color - 1;
+            count <= 0;
+        end
+        if (colorjoystick < 12'h850 || colorjoystick > 12'h400) count <= 0;
+       
+    end
+    
+endmodule
