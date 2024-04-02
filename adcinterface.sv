@@ -1,10 +1,9 @@
 // File: adcinterface.sv
-// Description: This module sneds one pulse on the CONVST, the proceeds
-//              to read the adc output for the precedind 12 clock cycles.
-//              also on the first six clock cycles it sends what channal it
-//              would like to communicate with.
-// Author: Alex Weir
-// Date: 2024-02-01
+// Description: This module sends one pulse on the CONVST, the proceeds to read the adc output for the precedind 12 clock cycles.
+//              Also on the first six clock cycles it sends what channal it would like to communicate with. It currently cycles between the microphone
+//              and the joystick.         
+// Author: Alex Weir & Braedon Linforth
+// Date: 2024-03-08
 
 
 module adcinterface(
@@ -24,7 +23,9 @@ logic [2:0] chan = 5;
 logic [7:0][5:0] adc_II = {6'b011111,6'b011101,6'b010111,6'b010101,6'b011011,6'b011001,6'b010011,6'b010001};// all the words to send the adc to pick what channel. 
                           
 assign ADC_SCK = (clockstate) ? clk : 1'b0;    // setting the acd clock to the clock state. 
+ 
 
+//logic to switch between microphone and joystick y to cycle every 18 clock pulses.
 always_ff @(negedge clk) begin
     chan_count <= chan_count + 1;
     if (chan_count >= 18) begin 
@@ -32,8 +33,8 @@ always_ff @(negedge clk) begin
         else if (chan == 1) chan <= 5;
         chan_count <= 0;
     end
-
 end
+
 
 always_ff @(posedge ADC_SCK)begin      // assigning the result the SDO bit on each clock cycle
     case(count)
@@ -51,12 +52,16 @@ always_ff @(posedge ADC_SCK)begin      // assigning the result the SDO bit on ea
         12 : result_t[0] <= ADC_SDO;
     endcase
 end
+
+
 //Sending the word to pick what channel
 always_ff @(negedge clk) begin       
     if (state == 3 && count < 6) ADC_SDI <= adc_II[chan][count];
     else ADC_SDI <= 0;
 end
-                                // the state machine to cycle threw the states. 
+
+
+// the state machine to cycle threw the states. 
 always_ff @(negedge clk) begin
     if (~reset_n) begin
         result <= '0;
@@ -79,6 +84,7 @@ always_ff @(negedge clk) begin
             clockstate <= 0;
             state <= 4;
             result_r <= result_t;
+            //Thresholds to determine the level of sound, but into 15 bins which matches the amount of LEDs in the array when the mic channel is selected
             if (chan == 5) begin
                 if (result_r < 'h600 ) result <= 'h000;
                 else if (result_r < 'h610 && result_r >= 'h600) result <= 'h001;
@@ -97,7 +103,7 @@ always_ff @(negedge clk) begin
                 else if (result_r >= 'h730 ) result <= 'h00e;
             end
             else begin
-                 colorjoystick <= result_t;
+                 colorjoystick <= result_t; //sends the adc value of the y joystick value when channel is selected
             end
             count <= 0;
         end

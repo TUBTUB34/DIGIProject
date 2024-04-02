@@ -1,34 +1,36 @@
+// File: colorchoice.sv
+// Description: This module sends receives a joystick signal from the adc and will ouput a color signal which will increment the color
+//              output variable up or down depending on the joystick postion. The joystick must return to the center position for it to reset.
+// Author: Alex Weir & Braedon Linforth
+// Date: 2024-03-08
+
 module colorchoice (
-                    input logic clk, // clock and reset
+                    input logic clk, reset_n, // clock and reset
                     input logic [11:0] colorjoystick,
                     output logic [3:0] color
                     );
 
-    logic [24:0] count = 0;
+    
     logic up = 0, down = 0;
         
     always_ff @(posedge clk) begin
-        //count <= count + 1;
-        // if (count >= 2000000) begin
-        if (colorjoystick > 12'h750) up = 1;
-        else if (colorjoystick < 12'h500) down = 1;
-            //count <= 0;
-        //end
+       
+        if (~reset_n) color <= '0;
+        else begin
+            if(colorjoystick > 12'h800 && up) begin //increments the color by 1
+                up <= 0;
+                color <= color + 1;
+            end
+            //logic to ensure the color variable doesnt increments until joystick returns to center position
+            else if (colorjoystick <= 12'h800 && colorjoystick > 12'h300) begin 
+                up <= 1;
+                down <=1;
+            end
+            else if(colorjoystick <= 12'h300 && down) begin //decrements the color by 1
+                down <= 0;
+                color <= color - 1;
+            end
 
-        if (up ||  down) begin 
-            count <= count + 1;
-            // up = 0;
-            // color <= color + 1;
-        end
-        if (up && count >= 5000000) begin
-            up = 0;
-            color <= color + 1;
-            count <= 0;
-        end
-        if (down && count >= 5000000) begin
-            down = 0;
-            color <= color - 1;
-            count <= 0;
         end
     end
     

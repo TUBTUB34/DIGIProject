@@ -1,8 +1,8 @@
-// File: end2chan.sv
+// File: end2cholor.sv
 // Description: This module takes the encouder pulses and counts up once every four cycles,
-//              then depending on what the count is, the approiate channel is then outputed.
-// Author: Alex Weir
-// Date: 2024-02-02
+//              then depending on what the count is, outputs the appropriate color brightness
+// Author: Alex Weir & Braedon Linforth
+// Date: 2024-03-08
 
 
 module enc2color
@@ -14,44 +14,43 @@ module enc2color
     logic [3:0] counter = 4;
     logic up = 0, down = 0;
 
-  always_ff @(posedge clk) begin 
-    
-    if (!reset_n) count <= 0;
+    always_ff @(posedge clk) begin 
+        
+        if (!reset_n) count <= 0;
+        //cw or ccw pulse increments or decrements the counter
+        if (cw || ccw) begin
+            if (cw) counter <= counter + 1;
+            else counter <= counter - 1;
+            end
 
-    //cw or ccw pulse increments or decrements the counter
- if (cw || ccw) begin
-        if (cw) counter <= counter + 1;
-        else counter <= counter - 1;
+        //if the counter goes up by 4, set up flag.
+        if (counter >= 8) begin
+            up <= 1;
+            counter <= 4;
+        end
+        //if the counter goes down by 4, set down flag.
+        else if (counter <= 0) begin
+            down <= 1;
+            counter <= 4;
         end
 
-    //if the counter goes up by 4, set up flag.
-    if (counter >= 8) begin
-        up <= 1;
-        counter <= 4;
+        // if up or down flag, increment or decrement counter
+        if (up) begin
+            up <= 0;
+            if (count >= 16) count <= 0;
+            else 
+            count <= count + 1;
+        end 
+        else if (down) begin
+            down <= 0;
+            if (count < 0) count <= 15;
+            else 
+            count <= count - 1;
+        end
     end
-    //if the counter goes down by 4, set down flag.
-    else if (counter <= 0) begin
-        down <= 1;
-        counter <= 4;
-    end
-
-    // if up or down flag, increment or decrement counter
-    if (up) begin
-        up <= 0;
-        if (count >= 16) count <= 0;
-        else 
-        count <= count + 1;
-    end 
-    else if (down) begin
-        down <= 0;
-        if (count < 0) count <= 15;
-        else 
-        count <= count - 1;
-    end
-  end
     
 
-    always_ff @(posedge clk) begin      // picks the appropriate channel
+    always_ff @(posedge clk) begin     // picks the appropriate color channel which effects the brightness
         
         case(count)
             0: color <= 0; 

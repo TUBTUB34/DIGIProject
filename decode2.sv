@@ -5,7 +5,7 @@
 module decode2 ( input logic [1:0] digit,  // led that will be on
                  output logic [3:0] ct );  // active low cathode, till turn on the led.
 
-    //Assgnes the correct LED to the correct active low cathode. 
+    //Assigns the correct LED to the correct active low cathode. 
     always_comb begin
         case (digit)
             0 : ct = 4'b1110 ;
